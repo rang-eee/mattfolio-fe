@@ -1,0 +1,30 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "extends": [
+    "@nuxtjs/eslint-config-typescript",
+    "plugin:nuxt/recommended",
+    "plugin:prettier/recommended",
+    "plugin:sonarjs/recommended"
+  ],
+  "rules": {
+    "no-useless-catch": "off",
+    "vue/no-mutating-props": "off",
+    "vue/multi-word-component-names": "off",
+    "vue/no-multiple-template-root": "off",
+    "vue/no-v-model-argument": "off",
+    "vue/require-default-prop": "off",
+    "sonarjs/no-useless-catch": "off",
+    "sonarjs/cognitive-complexity": "off",
+    "sonarjs/no-duplicate-string": "off",
+    "sonarjs/no-all-duplicated-branches": "off"
+  },
+  "ignorePatterns": ["public/*"]
+  // "prefer-const": ["error", {
+  //   "destructuring": "any",
+  //   "ignoreReadBeforeAssign": false
+  // }]
+}
