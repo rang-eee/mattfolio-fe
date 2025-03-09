@@ -1,6 +1,15 @@
 <script setup lang="ts">
-const email = ''
-const password = ''
+import axios from "axios";
+
+const KAKAO_AUTH_URL = import.meta.env.VITE_KAKAO_AUTH_URL;
+const NAVER_AUTH_URL = import.meta.env.VITE_NAVER_AUTH_URL;
+const loginWithKakao = async () => {
+  window.location.href = KAKAO_AUTH_URL;
+}
+
+const loginWithNaver = () => {
+  window.location.href = NAVER_AUTH_URL;
+}
 </script>
 
 <template>
@@ -8,24 +17,8 @@ const password = ''
     <AtomsVText variant="Body1B">로그인 및 회원가입을 시작합니다</AtomsVText>
 
     <div class="kakao-login">
-      <AtomsVChipButton label="카카오로 쉽게 시작하기" color="yellow" />
-    </div>
-
-    <AtomsVText variant="Body3" colorType="gray">또는</AtomsVText>
-
-    <div class="input-wrapper">
-      <MoleculesLabelInput :modelValue="email" placeholder="이메일을 입력해주세요" type="text" />
-      <MoleculesLabelInput :modelValue="password" placeholder="패스워드" type="password" />
-    </div>
-
-    <div class="checkbox-wrapper">
-      <MoleculesLabelCheckBox label="아이디 저장" />
-      <MoleculesLabelCheckBox label="보안 접속" />
-    </div>
-
-    <div class="button-wrapper">
-      <AtomsVChipButton label="로그인" />
-      <AtomsVChipButton label="회원가입" color="outline" />
+      <AtomsVChipButton label="카카오로 쉽게 시작하기" color="yellow" @click="loginWithKakao" />
+      <AtomsVChipButton label="네이버로 쉽게 시작하기" color="naver" @click="loginWithNaver" />
     </div>
   </AtomsVCard>
 </template>
@@ -44,6 +37,6 @@ const password = ''
 }
 
 .kakao-login {
-  @apply my-8.5 mb-2.5 w-full;
+  @apply my-8.5 mb-2.5 w-full flex flex-col gap-4;
 }
 </style>

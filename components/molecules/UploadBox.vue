@@ -8,7 +8,7 @@ const handleFileChange = (event: Event) => {
   const input = event.target as HTMLInputElement
   const files = input.files
   if (files && files.length > 0) {
-    console.log(files[0])
+    console.log(files[0]);
   }
 }
 
@@ -21,12 +21,7 @@ const triggerFileInput = () => {
 <template>
   <div class="section border-solid border-gray-200 rounded-3xl w-full h-full p-4">
     <input type="file" class="file-input" @change="handleFileChange" />
-    <AtomsVUploadIcon
-      class="cursor-pointer"
-      :size="size"
-      :color="color"
-      @click="triggerFileInput"
-    />
+    <AtomsVUploadIcon class="cursor-pointer" :size="size" :color="color" @click="triggerFileInput" />
   </div>
 </template>
 

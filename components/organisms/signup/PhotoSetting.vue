@@ -28,7 +28,8 @@
 }
 
 .upload-wrapper {
-  @apply grid gap-1 w-full place-items-center grid-cols-[repeat(5,1fr)] overflow-x-auto;
+  @apply grid gap-1 w-full place-items-center overflow-x-auto;
+  grid-template-columns: repeat(5, 1fr);
 }
 
 .upload-box {

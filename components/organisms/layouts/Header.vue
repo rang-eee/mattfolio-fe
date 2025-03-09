@@ -3,7 +3,7 @@ import { DropMenuList } from '~/data/dropMenuList'
 
 const route = useRoute()
 
-const isLogin = ref(true)
+const isLogin = ref(false)
 const isBellDropdownOpen = ref(false)
 const bellBadgeCount = ref(3)
 const bagBadgeCount = ref(5)
@@ -19,11 +19,14 @@ const toggleBellActive = () => {
   console.log('Bell clicked', isBellDropdownOpen.value)
 }
 
-const handleLogin = () => {}
+const handleLogin = () => {
+  navigateTo('/login')
 
-const handleStart = () => {}
+}
 
-const handleDropMenuSelect = () => {}
+const handleStart = () => { }
+
+const handleDropMenuSelect = () => { }
 </script>
 
 <template>
@@ -33,13 +36,7 @@ const handleDropMenuSelect = () => {}
     </NuxtLink>
 
     <div v-if="!isLogin" class="header-buttons">
-      <AtomsVChipButton
-        class="btn"
-        color="outline"
-        label="로그인"
-        size="xSmall"
-        @click="handleLogin"
-      />
+      <AtomsVChipButton class="btn" color="outline" label="로그인" size="xSmall" @click="handleLogin" />
       <AtomsVChipButton class="btn" label="시작 하기" size="xSmall" @click="handleStart" />
     </div>
 
@@ -51,28 +48,14 @@ const handleDropMenuSelect = () => {}
       </AtomsVChipButton>
 
       <div class="icon-container">
-        <AtomsVIcon
-          icon="bell"
-          :class="{ active: isBellActive }"
-          class="icon-bell"
-          @click="toggleBellActive"
-        />
+        <AtomsVIcon icon="bell" :class="{ active: isBellActive }" class="icon-bell" @click="toggleBellActive" />
         <span v-if="bellBadgeCount > 0" class="badge">{{ bellBadgeCount }}</span>
         <transition name="fade-dropdown">
-          <MoleculesVDropMenu
-            :items="DropMenuList"
-            :isOpen="isBellDropdownOpen"
-            @update:isOpen="isBellDropdownOpen = $event"
-            @select="handleDropMenuSelect"
-          >
+          <MoleculesVDropMenu :items="DropMenuList" :isOpen="isBellDropdownOpen" @update:isOpen="isBellDropdownOpen = $event" @select="handleDropMenuSelect">
             <template #label>
               <AtomsVText class="!hidden md:(!block)" variant="Body4B">알림</AtomsVText>
               <div class="!hidden <md:(!flex gap-2)">
-                <AtomsVIcon
-                  class="w-10px text-gray-500"
-                  icon="chevron-left"
-                  @click="toggleBellActive"
-                />
+                <AtomsVIcon class="w-10px text-gray-500" icon="chevron-left" @click="toggleBellActive" />
                 <AtomsVText class="flex items-center justify-center" variant="Body2B">
                   알림
                 </AtomsVText>
@@ -88,10 +71,7 @@ const handleDropMenuSelect = () => {}
       </div>
 
       <div>
-        <AtomsVProfile
-          src="https://www.harpersbazaar.co.kr/resources/online/online_image/2024/10/02/e78e67a9-3901-416f-9d84-163bd4ed7b8b.jpg"
-          size="36px"
-        />
+        <AtomsVProfile src="https://www.harpersbazaar.co.kr/resources/online/online_image/2024/10/02/e78e67a9-3901-416f-9d84-163bd4ed7b8b.jpg" size="36px" />
       </div>
     </div>
   </header>
@@ -121,7 +101,7 @@ const handleDropMenuSelect = () => {}
 
       .icon-bell,
       .icon-bag {
-        @apply relative min-w-18px md:(min-w-20px) !text-gray-600 hover:(!text-blue-500) active:(!text-blue-500) transition-colors duration-300;
+        @apply relative min-w-18px md:(min-w-20px) !text-gray-600 hover:( !text-blue-500) active:( !text-blue-500) transition-colors duration-300;
       }
 
       .badge {

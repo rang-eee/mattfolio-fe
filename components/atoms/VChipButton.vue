@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const props = defineProps<{
   label?: string
-  color?: 'primary' | 'outline' | 'black' | 'yellow' | 'gray'
+  color?: 'primary' | 'outline' | 'black' | 'yellow' | 'gray' | 'naver'
   size?: 'xxSmall' | 'xSmall' | 'small' | 'medium' | 'large'
   disabled?: boolean
 }>()
@@ -27,6 +27,8 @@ const buttonClass = computed(() => {
         return 'button-yellow'
       case 'gray':
         return 'button-gray'
+      case 'naver':
+        return 'button-naver'
       default:
         return 'button-primary'
     }
@@ -108,6 +110,11 @@ button {
 
 .button-gray {
   @apply bg-gray-700 text-white;
+}
+
+/* 네이버 로그인 색상 (예: 네이버의 브랜드 컬러: #5BC668) */
+.button-naver {
+  @apply bg-[#5BC668] text-white;
 }
 
 button:hover {
