@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import axios from "axios";
-
 const KAKAO_AUTH_URL = import.meta.env.VITE_KAKAO_AUTH_URL;
 const NAVER_AUTH_URL = import.meta.env.VITE_NAVER_AUTH_URL;
 const loginWithKakao = async () => {
@@ -10,6 +8,7 @@ const loginWithKakao = async () => {
 const loginWithNaver = () => {
   window.location.href = NAVER_AUTH_URL;
 }
+
 </script>
 
 <template>

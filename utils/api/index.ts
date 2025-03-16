@@ -3,9 +3,9 @@ import type { ApiResponse } from "@/utils/api/types/apiResponseType";
 
 const api: AxiosInstance = axios.create({
 	baseURL: import.meta.env.VITE_BACKEND_AUTH_URL,
-	timeout: 10000,
+	timeout: 1000 * 60,
 	headers: {
-		"Content-Type": "application/json",
+		// "Content-Type": "application/json",
 	},
 });
 

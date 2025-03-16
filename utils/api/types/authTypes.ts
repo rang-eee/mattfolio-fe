@@ -6,7 +6,7 @@ export interface SignInResponse {
 	googleUserInfo?: GoogleUserInfo;
 	accessToken?: string;
 	refreshToken?: string;
-	needSignup?: boolean; // 추가 회원가입이 필요한 경우
+	needFaceup?: boolean; // 추가 회원가입이 필요한 경우
 }
 
 // ✅ 카카오 사용자 정보 타입 (백엔드의 `KakaoUserInfo` DTO 기반)
